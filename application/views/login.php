@@ -7,8 +7,7 @@
 							Login
 						</span>
 					</div>
-
-					<form class="login100-form">
+					<?php echo form_open_multipart('formulario_controller/login',array('class'=>'login100-form'));?>
 						<div class="wrap-input100 m-b-26">
 							<span class="label-input100">Usuario:</span>
 							<?=form_input(array('type'=>'text','name'=>'user','id'=>'user','placeholder' => 'Introduzca su usuario','class'=>'input100','value'=>set_value('user')))?>
@@ -33,7 +32,7 @@
 								Entrar
 							</button>
 						</div>
-					</form>
+					<?=form_close()?>
 				</div>
 			</div>
 		</div>
