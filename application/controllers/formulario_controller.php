@@ -37,7 +37,9 @@ class Formulario_controller extends CI_Controller {
 		else
 		{
 			/***Si el logeo es correcto***/
+			$this->load->view('header/head');
 			$this->load->view('formsuccess');
+			$this->load->view('footer/foot');
 		}
 	}
 

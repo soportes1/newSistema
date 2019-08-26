@@ -7,7 +7,7 @@
 <h3> ¡Su formulario se ha enviado correctamente! </h3>
 <p> 
 	<?php 
-		echo anchor ('formulario','¡Inténtalo de nuevo!');
+		echo anchor ('formulario_controller/index','¡Inténtalo de nuevo!');
 	?> 
 </p>
 
