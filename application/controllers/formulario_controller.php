@@ -84,4 +84,10 @@ class Formulario_controller extends CI_Controller {
 
 		}
 	}
+
+	public function login()
+	{
+		echo "hola";
+	}
+
 }
