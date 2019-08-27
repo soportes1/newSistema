@@ -6,8 +6,10 @@ class Formulario_controller extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('model_SubirVideos');
+		$this->load->model("model_Agregar");
 		$this->load->helper('url_helper');
 		$this->load->library('form_validation');
+		$this->load->library('encryption');
 
 	}
 
@@ -37,9 +39,25 @@ class Formulario_controller extends CI_Controller {
 		else
 		{
 			/***Si el logeo es correcto***/
-			$this->load->view('header/head');
-			$this->load->view('formsuccess');
-			$this->load->view('footer/foot');
+			
+			$pass=$this->input->post("pass");
+			$pass=$this->encryption->encrypt($pass);
+
+			$insert = $this->model_Agregar->agregar(
+				$this->input->post("user"),
+				$pass
+			);
+			if ($insert > 0) {
+				$this->data["msj"] = "Usuario correcto";
+				$b = 1;
+				/*$this->load->view('header/head');
+				$this->load->view('formsuccess');
+				$this->load->view('footer/foot');*/
+			} else {
+				$this->data["msj"] = "Usuario incorrecto";
+			}
+			
+			
 		}
 	}
 

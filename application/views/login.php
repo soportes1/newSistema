@@ -37,4 +37,9 @@
 			</div>
 		</div>
 
-	
+	<?php
+$msj = (isset($msj)) ? $msj:validation_errors();
+if (strlen($msj) > 0 )
+    echo "<div class='alert alert-info'><h1 class='text-center'> <a href='".site_url("cliente")."'>Atras</a> |  $msj  </h1></div>";
+
+?>

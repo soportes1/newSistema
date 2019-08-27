@@ -4,7 +4,7 @@ class Model_SubirVideos extends CI_Model {
 
 	public function SubirVideos()
 	{
-		echo "Hola ";
+		//echo "Hola ";
                 $newFile = 'uploads/'.$_FILES['archivo']['name']; 
                 $subio = false;
 
