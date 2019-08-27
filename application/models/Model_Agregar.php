@@ -4,11 +4,11 @@ class Model_Agregar extends CI_Model {
 
 	public function agregar($user,$pass)
     {
-       $array = array("idUsuario"=>0,
-          "tipoUsuario"=>$user,
-          "contraseña"=>$pass
+       $array = array("idAlumno"=>0,
+          "nombreAlumno"=>$user,
+          "password"=>$pass
       );
-       $this->db->insert("usuarios",$array);
+       $this->db->insert("alumno",$array);
        return $this->db->affected_rows();
    }
 }

@@ -20,7 +20,7 @@ class Formulario_controller extends CI_Controller {
 		$this->load->view('footer/foot');
 	}
 
-	public function login(){
+	public function registro(){
 		$this->form_validation->set_rules('user', 'Usuario', 'required');
 
 		$this->form_validation->set_message('required', 'El campo %s es obligatorio');
@@ -31,14 +31,14 @@ class Formulario_controller extends CI_Controller {
 
 		if ($this->form_validation->run() == FALSE)
 		{
-			/***Si el logeo es incorrecto***/
+			/***Si el registro es incorrecto***/
 			$this->load->view('header/head');
-			$this->load->view('login');
+			$this->load->view('registro');
 			$this->load->view('footer/foot');
 		}
 		else
 		{
-			/***Si el logeo es correcto***/
+			/***Si el registro es correcto***/
 			
 			$pass=$this->input->post("pass");
 			$pass=$this->encryption->encrypt($pass);
@@ -81,7 +81,6 @@ class Formulario_controller extends CI_Controller {
 		{
 			$data['uploadSuccess'] = $this->upload->data();
 			echo 'archivo subido con exito';
-
 
 		}
 	}
