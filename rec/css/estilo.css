@@ -28,18 +28,7 @@ a:focus, a:hover { text-decoration: none; color: #f67800; }
 /*******************************************************************************************
 ************************Estilo para las estrellas de calificacion***************************
 ********************************************************************************************/
-
-label{ color:grey;}
-input[type = "radio"]{ display:none;}
-.clasificacion{
-      direction: rtl;/* right to left */
-      unicode-bidi: bidi-override;/* bidi de bidireccional */
-  }
-  label:hover{color:orange;}
-  label:hover ~ label{color:orange;}
-  input[type = "radio"]:checked ~ label{color:orange;}
-  
-  #form {
+#form {
   width: 250px;
   margin: 0 auto;
   height: 50px;
@@ -61,7 +50,7 @@ label {
   color: grey;
 }
 
-.clasificacion {
+p.clasificacion {
   direction: rtl;
   unicode-bidi: bidi-override;
 }
