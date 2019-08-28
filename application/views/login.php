@@ -12,19 +12,11 @@
 				<span class="label-input100">Usuario:</span>
 				<?=form_input(array('type'=>'text','name'=>'user','id'=>'user','placeholder' => 'Introduzca su usuario','class'=>'input100','value'=>set_value('user')))?>
 			</div>
-			<div class="LoginUsuarioError">
-				<?
-				if(isset($error)){
-					echo "<p>".$error."</p>";
-				}
-				echo form_error('user');
-				?>
-			</div>
 			<div class="wrap-input100 m-b-18">
 				<span class="label-input100">Contraseña:</span>						 
 				<?=form_input(array('type'=>'password','name'=>'pass','id'=>'id','placeholder' => 'Introduzca su contraseña','class'=>'input100','value'=>set_value('pass')))?>
 			</div>
-			<div class="LoginUsuarioError">
+			<div class="LoginPassError">
 				<?
 				if(isset($error)){
 					echo "<p>".$error."</p>";

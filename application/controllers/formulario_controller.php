@@ -14,15 +14,14 @@ class Formulario_controller extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('header/head');
-		$this->load->view('login');
+		$this->load->view('ViewCursosVideos');
 		$this->load->view('footer/foot');
 	}
 
 	public function registro(){
-		$this->form_validation->set_rules('user', 'Usuario', 'required');
+		$this->form_validation->set_rules('user', 'Usuario','is_unique','required','max_length');
 
 		$this->form_validation->set_message('required', 'El campo %s es obligatorio');
-		$this->form_validation->set_message('integer', 'El campo %s deve poseer solo numeros enteros');
 		$this->form_validation->set_message('is_unique', 'El campo %s ya esta registrado');
 		$this->form_validation->set_message('max_length', 'El Campo %s debe tener un Maximo de %d Caracteres');
 
@@ -45,13 +44,11 @@ class Formulario_controller extends CI_Controller {
 			);
 
 			if ($insert > 0) {
-				$this->data["msj"] = "Usuario correcto";
-				$b = 1;
-				/*$this->load->view('header/head');
+				$this->load->view('header/head');
 				$this->load->view('formsuccess');
-				$this->load->view('footer/foot');*/
+				$this->load->view('footer/foot');
 			} else {
-				$this->data["msj"] = "Usuario incorrecto";
+				
 			}
 			
 			
@@ -89,16 +86,18 @@ class Formulario_controller extends CI_Controller {
 
         if($this->login_model->login($nombre, $password))
         {
+        	/***Si los datos de logeo son correctos***/
            $this->load->view('header/head');
 			$this->load->view('formsuccess');
 			$this->load->view('footer/foot');
         }
         else
         {
-        	$this->data["msj"] = "Usuario incorrecto";
-            $this->load->view('header/head');
-			$this->load->view('login');
-			$this->load->view('footer/foot');
+        	/***Si los datos de logeo son incorrectos***/
+        	$data['error']="E-mail o password incorrecta, por favor vuelva a intentar";
+        	$this->load->view('header/head');
+          	$this->load->view('login',$data);
+           	$this->load->view('footer/foot');
         }
     }
 }
