@@ -9,13 +9,12 @@ class Formulario_controller extends CI_Controller {
 		$this->load->model("model_Agregar");
 		$this->load->helper('url_helper');
 		$this->load->library('form_validation');
-		$this->load->library('encryption');
 	}
 
 	public function index()
 	{
 		$this->load->view('header/head');
-		$this->load->view('registro');
+		$this->load->view('login');
 		$this->load->view('footer/foot');
 	}
 
@@ -38,15 +37,13 @@ class Formulario_controller extends CI_Controller {
 		else
 		{
 			/***Si el registro es correcto***/
-			/*$pass=$this->input->post("pass");
-			$pass=$this->encryption->encrypt($pass);*/
-
 			$insert = $this->model_Agregar->agregar(
 				$this->input->post("user"),
 				$this->input->post("name"),
 				$this->input->post("email"),
 				$pass=password_hash($this->input->post("pass"),PASSWORD_DEFAULT)
 			);
+
 			if ($insert > 0) {
 				$this->data["msj"] = "Usuario correcto";
 				$b = 1;
@@ -87,22 +84,21 @@ class Formulario_controller extends CI_Controller {
 
 	public function login()
 	{
-		$pass=$this->input->post("pass");
-		$pass=$this->encryption->encrypt($pass);
+        $nombre = $this->input->post('user');
+        $password = $this->input->post('pass');
 
-		$select = $this->model_Agregar->consulta(
-			$this->input->post("user"),
-			$pass
-		);
-		if ($select != null) {
-			echo "Usuario correcto";
-			$this->data["msj"] = "Usuario correcto";
-			$b = 1;
-		} else {
-			echo "Usuario incorrecto";
-			$this->data["msj"] = "Usuario incorrecto";
-		}
-		
-	}
-
+        if($this->login_model->login($nombre, $password))
+        {
+           $this->load->view('header/head');
+			$this->load->view('formsuccess');
+			$this->load->view('footer/foot');
+        }
+        else
+        {
+        	$this->data["msj"] = "Usuario incorrecto";
+            $this->load->view('header/head');
+			$this->load->view('login');
+			$this->load->view('footer/foot');
+        }
+    }
 }
