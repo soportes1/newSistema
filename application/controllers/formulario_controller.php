@@ -20,8 +20,11 @@ class Formulario_controller extends CI_Controller {
 		$this->load->view('footer/foot');
 	}
 
+
 	public function registro(){
 		$this->form_validation->set_rules('user', 'Usuario', 'required');
+	public function login(){
+		$this->form_validation->set_rules('user', 'user', 'required');
 
 		$this->form_validation->set_message('required', 'El campo %s es obligatorio');
 		$this->form_validation->set_message('integer', 'El campo %s deve poseer solo numeros enteros');
