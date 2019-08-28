@@ -15,16 +15,21 @@ class Formulario_controller extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('header/head');
-		$this->load->view('registro');
+		$this->load->view('login');
 		$this->load->view('footer/foot');
 	}
 
 	public function registro(){
 		$this->form_validation->set_rules('user', 'Usuario', 'required|alpha_numeric');
 		$this->form_validation->set_rules('name', 'Nombre', 'required');	
-		$this->form_validation->set_rules('pass', 'Contraseña', 'required|matches[pass]|min_length[8]|alpha_numeric_spaces');
+		$this->form_validation->set_rules('pass', 'Contraseña', 'required|matches[pass]|min_length[8]');
 		$this->form_validation->set_rules('rpass', 'Contraseña', 'required');
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+		/*
+		$this->form_validation->set_message('required', 'El campo %s es obligatorio');
+		$this->form_validation->set_message('integer', 'El campo %s deve poseer solo numeros enteros');
+		$this->form_validation->set_message('is_unique', 'El campo %s ya esta registrado');
+		$this->form_validation->set_message('max_length', 'El Campo %s debe tener un Maximo de %d Caracteres');*/
 		
 
 
@@ -104,5 +109,6 @@ class Formulario_controller extends CI_Controller {
 		}
 		
 	}
+
 
 }
