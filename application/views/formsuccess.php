@@ -1,15 +1,15 @@
 <html> 
 <head> 
-<title> Mi  formulario </title> 
+	<title> Mi  formulario </title> 
 </head> 
 <body>
 
-<h3> ¡Su formulario se ha enviado correctamente! </h3>
-<p> 
-	<?php 
+	<h3> ¡Su formulario se ha enviado correctamente! </h3>
+	<p> 
+		<?php 
 		echo anchor ('formulario_controller/index','¡Inténtalo de nuevo!');
-	?> 
-</p>
+		?> 
+	</p>
 
 </body> 
 </html>
