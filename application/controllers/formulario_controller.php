@@ -16,14 +16,13 @@ class Formulario_controller extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('header/head');
-		$this->load->view('login');
+		$this->load->view('registro');
 		$this->load->view('footer/foot');
 	}
 
 
 	public function registro(){
-		$this->form_validation->set_rules('user', 'Usuario', 'required');
-	public function login(){
+
 		$this->form_validation->set_rules('user', 'user', 'required');
 
 		$this->form_validation->set_message('required', 'El campo %s es obligatorio');
