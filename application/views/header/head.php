@@ -9,5 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="rec/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="rec/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 	<link rel="stylesheet" type="text/css" href="rec/css/util.css">
-	<link rel="stylesheet" type="text/css" href="rec/css/main.css"></head>
+	<link rel="stylesheet" type="text/css" href="rec/css/main.css">
+	<link rel="stylesheet" type="text/css" href="rec/css/estilo.css">
+</head>
 	<body>
