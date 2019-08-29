@@ -17,7 +17,7 @@
 				<?=form_input(array('type'=>'password','name'=>'pass','id'=>'id','placeholder' => 'Introduzca su contraseña','class'=>'input100','value'=>set_value('pass')))?>
 			</div>
 			<div class="LoginPassError">
-				<?
+				<?php
 				if(isset($error)){
 					echo "<p>".$error."</p>";
 				}
