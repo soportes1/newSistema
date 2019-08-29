@@ -3,13 +3,9 @@
 <title> Mi  formulario </title> 
 </head> 
 <body>
-
-<h3> ¡Su formulario se ha enviado correctamente! </h3>
-<p> 
-	<?php 
-		echo anchor ('formulario_controller','¡Inténtalo de nuevo!');
-	?> 
-</p>
-
+<h1> Bienvenido/a <?php echo $nombre ?> </h1>
+    <p>
+       <a href="<?php echo base_url() ?>formulario_controller/cerrar_sesion"> Cerrar sesión </a>
+    </p>
 </body> 
 </html>

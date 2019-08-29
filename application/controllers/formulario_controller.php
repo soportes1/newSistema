@@ -14,7 +14,14 @@ class Formulario_controller extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('header/head');
-		$this->load->view('registro');
+		$this->load->view('login');
+		$this->load->view('footer/foot');
+	}
+	public function succes()
+	{
+		$data = array();
+		$this->load->view('header/head');
+		$this->load->view('formsuccess', $data);
 		$this->load->view('footer/foot');
 	}
 
@@ -80,23 +87,61 @@ class Formulario_controller extends CI_Controller {
 
 	public function login()
 	{
-        $nombre = $this->input->post('user');
+		if ($this->input->post()) {
+			$user=$this->input->post('user');
+			$pass=$this->input->post('pass');
+
+			$usuario=$this->login_model->login($user,$pass);
+
+			if ($usuario) {
+				$data = array(
+					'id' => $usuario->idAlumno,
+					'user' => $usuario->usuario,
+					'nombre' => $usuario->nombreAlumno,
+					'email' => $usuario->email,
+					'logueado' => TRUE
+				);
+				$this->session->set_userdata($data);
+				redirect('formulario_controller/logueado');
+			}else{
+				redirect('formulario_controller');
+			}
+		}
+
+        /*$nombre = $this->input->post('user');
         $password = $this->input->post('pass');
 
         if($this->login_model->login($nombre, $password))
         {
-        	/***Si los datos de logeo son correctos***/
+        	//Si los datos de logeo son correctos
            $this->load->view('header/head');
 			$this->load->view('formsuccess');
 			$this->load->view('footer/foot');
         }
         else
         {
-        	/***Si los datos de logeo son incorrectos***/
+        	Si los datos de logeo son incorrectos
         	$data['error']="E-mail o password incorrecta, por favor vuelva a intentar";
         	$this->load->view('header/head');
           	$this->load->view('login',$data);
            	$this->load->view('footer/foot');
-        }
+        }*/
     }
+
+    public function logueado(){
+    	if ($this->session->userdata('logueado')) {
+    		$data = array();
+    		$data['nombre']=$this->session->userdata('nombre');
+    		$this->load->view('formsuccess', $data);
+    	}else{
+    		redirect('formulario_controller');
+    	}
+    }
+    public function cerrar_sesion() {
+      $usuario = array(
+         'logueado' => FALSE
+      );
+      $this->session->set_userdata($usuario);
+      redirect('formulario_controller');
+   }
 }
