@@ -27,19 +27,19 @@
                                 </div>
                                 <div class="p-2">
                                     <input id="radio2" type="radio" name="estrellas" value="4">
-                                <label for="radio2">★</label>
+                                    <label for="radio2">★</label>
                                 </div>
                                 <div class="p-2">
                                     <input id="radio3" type="radio" name="estrellas" value="3">
-                                <label for="radio3">★</label>
+                                    <label for="radio3">★</label>
                                 </div>
                                 <div class="p-2">
                                     <input id="radio4" type="radio" name="estrellas" value="2">
-                                <label for="radio4">★</label>
+                                    <label for="radio4">★</label>
                                 </div>
                                 <div class="p-2">
                                     <input id="radio5" type="radio" name="estrellas" value="1">
-                                <label for="radio5">★</label>
+                                    <label for="radio5">★</label>
                                 </div>
                               </div>
                             </form>

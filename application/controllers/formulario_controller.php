@@ -14,7 +14,7 @@ class Formulario_controller extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('header/head');
-		$this->load->view('registro');
+		$this->load->view('viewCursosVideos');
 		$this->load->view('footer/foot');
 	}
 

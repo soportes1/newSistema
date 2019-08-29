@@ -29,9 +29,9 @@ a:focus, a:hover { text-decoration: none; color: #f67800; }
 ************************Estilo para las estrellas de calificacion***************************
 ********************************************************************************************/
 #form {
-  width: 250px;
+  width: 300px;
   margin: 0 auto;
-  height: 50px;
+  height: 100px;
 }
 
 #form p {
@@ -39,7 +39,7 @@ a:focus, a:hover { text-decoration: none; color: #f67800; }
 }
 
 #form label {
-  font-size: 20px;
+  font-size: 50px;
 }
 
 input[type="radio"] {
@@ -50,10 +50,7 @@ label {
   color: grey;
 }
 
-.clasificacion {
-  direction: rtl;
-  unicode-bidi: bidi-override;
-}
+
 
 label:hover,
 label:hover ~ label {
