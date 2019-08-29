@@ -1,26 +1,4 @@
 
-
-		<div class="limiter">
-			<div class="container-login100">
-				<div class="wrap-login100">
-					<div class="login100-form-title" style="background-image: url(rec/images/bg-01.jpg);">
-						<span class="login100-form-title-1">
-							Login
-						</span>
-					</div>
-					<?php echo form_open_multipart('formulario_controller/dologin',array('class'=>'login100-form'));?>
-						<div class="wrap-input100 m-b-26">
-							<span class="label-input100">Usuario:</span>
-							<?=form_input(array('type'=>'text','name'=>'user','id'=>'user','placeholder' => 'Introduzca su usuario','class'=>'input100','value'=>set_value('user')))?>
-						</div>
-
-						<div class="wrap-input100 m-b-18">
-							<span class="label-input100">Contraseña:</span>						 
-							<?=form_input(array('type'=>'password','name'=>'pass','id'=>'id','placeholder' => 'Introduzca su contraseña','class'=>'input100','value'=>set_value('pass')))?>
-						</div>
-
-						<div class="flex-sb-m w-full p-b-30">
-
 <div class="limiter">
 	<div class="container-login100">
 		<div class="wrap-login100">
@@ -39,7 +17,7 @@
 				<?=form_input(array('type'=>'password','name'=>'pass','id'=>'id','placeholder' => 'Introduzca su contraseña','class'=>'input100','value'=>set_value('pass')))?>
 			</div>
 			<div class="LoginPassError">
-				<?
+				<?php
 				if(isset($error)){
 					echo "<p>".$error."</p>";
 				}
