@@ -20,18 +20,28 @@
                             <p class="mb30 team-meta">Video </p>
                             <p>Este es una pequeña descripción del video para ver de que trata.</p>
                             <form>
-                              <p >
-                                <input id="radio1" type="radio" name="estrellas" value="5">
-                                <label class="clasificacion" for="radio1">★</label>
-                                <input id="radio2" type="radio" name="estrellas" value="4">
+                              <div class="d-flex flex-row">
+                                <div class="p-2">
+                                    <input id="radio1" type="radio" name="estrellas" value="5">
+                                    <label for="radio1">★</label>
+                                </div>
+                                <div class="p-2">
+                                    <input id="radio2" type="radio" name="estrellas" value="4">
                                 <label for="radio2">★</label>
-                                <input id="radio3" type="radio" name="estrellas" value="3">
+                                </div>
+                                <div class="p-2">
+                                    <input id="radio3" type="radio" name="estrellas" value="3">
                                 <label for="radio3">★</label>
-                                <input id="radio4" type="radio" name="estrellas" value="2">
+                                </div>
+                                <div class="p-2">
+                                    <input id="radio4" type="radio" name="estrellas" value="2">
                                 <label for="radio4">★</label>
-                                <input id="radio5" type="radio" name="estrellas" value="1">
+                                </div>
+                                <div class="p-2">
+                                    <input id="radio5" type="radio" name="estrellas" value="1">
                                 <label for="radio5">★</label>
-                              </p>
+                                </div>
+                              </div>
                             </form>
                         </div>
                     </div>

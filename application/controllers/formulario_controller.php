@@ -14,18 +14,24 @@ class Formulario_controller extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('header/head');
+
 		$this->load->view('login');
+
+		$this->load->view('registro');
+
 		$this->load->view('footer/foot');
 	}
 
 	public function registro(){
+
 		$this->form_validation->set_rules('user', 'Usuario', 'required');
+
+		$this->form_validation->set_rules('user', 'Usuario','required');
 
 		$this->form_validation->set_message('required', 'El campo %s es obligatorio');
 		$this->form_validation->set_message('integer', 'El campo %s deve poseer solo numeros enteros');
 		$this->form_validation->set_message('is_unique', 'El campo %s ya esta registrado');
 		$this->form_validation->set_message('max_length', 'El Campo %s debe tener un Maximo de %d Caracteres');
-
 
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -51,7 +57,11 @@ class Formulario_controller extends CI_Controller {
 				$this->load->view('formsuccess');
 				$this->load->view('footer/foot');
 			} else {
+
 				$this->data["msj"] = "Usuario incorrecto";
+
+				echo "error";
+
 			}
 			
 			
