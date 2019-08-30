@@ -7,7 +7,7 @@
 					Login
 				</span>
 			</div>
-			<?php echo form_open('formulario_controller/login',array('class'=>'login100-form'));?>
+			<?php echo form_open('login/login',array('class'=>'login100-form'));?>
 			<div class="wrap-input100 m-b-26">
 				<span class="label-input100">Usuario:</span>
 				<?=form_input(array('type'=>'text','name'=>'user','id'=>'user','placeholder' => 'Introduzca su usuario','class'=>'input100','value'=>set_value('user')))?>

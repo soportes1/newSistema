@@ -7,7 +7,7 @@
 							Registro
 						</span>
 					</div>
-					<?php echo form_open_multipart('formulario_controller/registro',array('class'=>'login100-form'));?>
+					<?php echo form_open_multipart('registro/registro',array('class'=>'login100-form'));?>
 						<div class="wrap-input100 m-b-10">
 							<span class="label-input100">Usuario:</span>
 							<?=form_input(array('type'=>'text','name'=>'user','id'=>'user','placeholder' => 'Introduzca su usuario','class'=>'input100','value'=>set_value('user')))?>

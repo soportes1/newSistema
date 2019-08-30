@@ -13,53 +13,18 @@ class Formulario_controller extends CI_Controller {
 
 	public function index()
 	{
+		$data = $this->session->flashdata('data');
+		if ($data=="") {
+			$data = array('nombre' =>null , );
+		}
 		$this->load->view('header/head');
-		$this->load->view('login');
+		$this->load->view('navbar',$data);
+		$this->load->view('viewCursosVideos');		
 		$this->load->view('footer/foot');
 	}
-	public function succes()
-	{
-		$data = array();
-		$this->load->view('header/head');
-		$this->load->view('formsuccess', $data);
-		$this->load->view('footer/foot');
-	}
 
-	public function registro(){
-		$this->form_validation->set_rules('user', 'Usuario','required');
 
-		$this->form_validation->set_message('required', 'El campo %s es obligatorio');
-		$this->form_validation->set_message('is_unique', 'El campo %s ya esta registrado');
-		$this->form_validation->set_message('max_length', 'El Campo %s debe tener un Maximo de %d Caracteres');
 
-		if ($this->form_validation->run() == FALSE)
-		{
-			/***Si el registro es incorrecto***/
-			$this->load->view('header/head');
-			$this->load->view('registro');
-			$this->load->view('footer/foot');
-		}
-		else
-		{
-			/***Si el registro es correcto***/
-			$insert = $this->model_Agregar->agregar(
-				$this->input->post("user"),
-				$this->input->post("name"),
-				$this->input->post("email"),
-				$pass=password_hash($this->input->post("pass"),PASSWORD_DEFAULT)
-			);
-
-			if ($insert > 0) {
-				$this->load->view('header/head');
-				$this->load->view('formsuccess');
-				$this->load->view('footer/foot');
-			} else {
-				echo "error";
-			}
-			
-			
-		}
-	}
 
 	public function SubirVideo()
 	{
@@ -85,58 +50,9 @@ class Formulario_controller extends CI_Controller {
 		}
 	}
 
-	public function login()
-	{
-		if ($this->input->post()) {
-			$user=$this->input->post('user');
-			$pass=$this->input->post('pass');
+	
 
-			$usuario=$this->login_model->login($user,$pass);
 
-			if ($usuario) {
-				$data = array(
-					'id' => $usuario->idAlumno,
-					'user' => $usuario->usuario,
-					'nombre' => $usuario->nombreAlumno,
-					'email' => $usuario->email,
-					'logueado' => TRUE
-				);
-				$this->session->set_userdata($data);
-				redirect('formulario_controller/logueado');
-			}else{
-				redirect('formulario_controller');
-			}
-		}
-
-        /*$nombre = $this->input->post('user');
-        $password = $this->input->post('pass');
-
-        if($this->login_model->login($nombre, $password))
-        {
-        	//Si los datos de logeo son correctos
-           $this->load->view('header/head');
-			$this->load->view('formsuccess');
-			$this->load->view('footer/foot');
-        }
-        else
-        {
-        	Si los datos de logeo son incorrectos
-        	$data['error']="E-mail o password incorrecta, por favor vuelva a intentar";
-        	$this->load->view('header/head');
-          	$this->load->view('login',$data);
-           	$this->load->view('footer/foot');
-        }*/
-    }
-
-    public function logueado(){
-    	if ($this->session->userdata('logueado')) {
-    		$data = array();
-    		$data['nombre']=$this->session->userdata('nombre');
-    		$this->load->view('formsuccess', $data);
-    	}else{
-    		redirect('formulario_controller');
-    	}
-    }
     public function cerrar_sesion() {
       $usuario = array(
          'logueado' => FALSE
