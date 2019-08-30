@@ -1,8 +1,6 @@
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"  >
-
 
 <nav class="navbar navbar-expand-md navbar-light  bg-light sticky-top">
- <a class="navbar-brand" href="#">
+ <a class="navbar-brand" href="formulario_controller">
     <img src="https://elandroidelibre.elespanol.com/wp-content/uploads/2014/05/coconut.png" width="50" height="50" alt="">
   </a>
    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
@@ -12,7 +10,7 @@
 <div id="navb" class="navbar-collapse collapse hide">
 <ul class="navbar-nav">
    <li class="nav-item ">
-        <a class="nav-link" href="#">Opcion 1</a>
+        <a class="nav-link" href="<?php echo base_url() ?>subir_video_controller">Subir video</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -5,7 +5,7 @@
 <h1>Subir un archivo</h1>
 <fieldset style="width: 100px;">
 	<br>
-	<form action="formulario_controller/SubirVideo" method="post" enctype="multipart/form-data">
+	<form action="subir_video_controller/SubirVideo" method="post" enctype="multipart/form-data">
 		<input type="file" name="archivo"/>
 		<br></br>
 		<input type="submit" value="Subir"/>

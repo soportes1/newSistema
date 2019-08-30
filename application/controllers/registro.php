@@ -5,7 +5,6 @@ class registro extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('model_SubirVideos');
 		$this->load->model("model_Agregar");
 		$this->load->helper('url_helper');
 		$this->load->library('form_validation');
@@ -17,6 +16,7 @@ class registro extends CI_Controller {
 		$this->load->view('view_registro');		
 		$this->load->view('footer/foot');
 	}
+
 		public function registro(){
 		$this->form_validation->set_rules('user', 'Usuario','required');
 
@@ -35,21 +35,33 @@ class registro extends CI_Controller {
 		{
 			/***Si el registro es correcto***/
 			$insert = $this->model_Agregar->agregar(
-				$this->input->post("user"),
+				$user=$this->input->post("user"),
 				$this->input->post("name"),
 				$this->input->post("email"),
 				$pass=password_hash($this->input->post("pass"),PASSWORD_DEFAULT)
 			);
 
 			if ($insert > 0) {
-				$this->load->view('header/head');
-				$this->load->view('formsuccess',);
-				$this->load->view('footer/foot');
+				$user=$this->input->post('user');
+			$pass=$this->input->post('pass');
+				$usuario=$this->login_model->login($user,$pass);
+
+			if ($usuario) {
+				$data = array(
+					'id' => $usuario->idAlumno,
+					'user' => $usuario->usuario,
+					'nombre' => $usuario->nombreAlumno,
+					'email' => $usuario->email,
+					'logueado' => TRUE
+				);
+				$this->session->set_userdata($data);
+				redirect('login/logueado');
+			}else{
+				redirect('registro');
+			}
 			} else {
 				echo "error";
 			}
-			
-			
 		}
 	}
 }

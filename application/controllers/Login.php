@@ -13,8 +13,10 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
+		$data = array();
+		$data['error'] = $this->session->flashdata('error');
 		$this->load->view('header/head');
-		$this->load->view('login');
+		$this->load->view('login',$data);
 		$this->load->view('footer/foot');
 	}
 
@@ -38,21 +40,22 @@ class Login extends CI_Controller {
 				$this->session->set_userdata($data);
 				redirect('login/logueado');
 			}else{
+				$this->session->set_flashdata('error', 'El usuario o la contraseña son incorrectos.');
 				redirect('login');
 			}
 		}
-    }
+	}
 
-    public function logueado(){
-    	if ($this->session->userdata('logueado')) {
-    		$data = array();
-    		$data['nombre']=$this->session->userdata('nombre');
+	public function logueado(){
+		if ($this->session->userdata('logueado')) {
+			$data = array();
+			$data['nombre']=$this->session->userdata('nombre');
     		//$this->load->view('navbar',$data);
-    		$this->session->set_flashdata('data',$data);
-    		redirect('formulario_controller');
-    	}else{
-    		redirect('formulario_controller');
-    	}
-    }
+			$this->session->set_flashdata('data',$data);
+			redirect('formulario_controller');
+		}else{
+			redirect('formulario_controller');
+		}
+	}
 
 }
