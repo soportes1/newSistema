@@ -12,14 +12,7 @@
 	<!--<link rel="stylesheet" type="text/css" href="rec/css/util.css">-->
 	<link rel="stylesheet" type="text/css" href="rec/css/main.css">
 	<link rel="stylesheet" type="text/css" href="rec/css/estilo.css">
-
-	<link rel="stylesheet" type="text/css" href="rec/css/dropzone.css">
-
-	</head>
-
 	<link rel="stylesheet" type="text/css" href="rec/css/style.css">
-
-	
 	
 </head>
 	<body>
