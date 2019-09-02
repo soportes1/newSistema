@@ -7,7 +7,7 @@
 					Login
 				</span>
 			</div>
-			<?php echo form_open('formulario_controller/login',array('class'=>'login100-form'));?>
+			<?php echo form_open('login/login',array('class'=>'login100-form'));?>
 			<div class="wrap-input100 m-b-26">
 				<span class="label-input100">Usuario:</span>
 				<?=form_input(array('type'=>'text','name'=>'user','id'=>'user','placeholder' => 'Introduzca su usuario','class'=>'input100','value'=>set_value('user')))?>
@@ -16,22 +16,20 @@
 				<span class="label-input100">Contraseña:</span>						 
 				<?=form_input(array('type'=>'password','name'=>'pass','id'=>'id','placeholder' => 'Introduzca su contraseña','class'=>'input100','value'=>set_value('pass')))?>
 			</div>
-			<div class="LoginPassError">
-				<?php
-				if(isset($error)){
-					echo "<p>".$error."</p>";
-				}
-				echo form_error('pass');
-				?>
+			
+			<div class="flex-sb-m w-full p-b-30">
+				<div class="LoginPassError">
+					<?php if ($error): ?>
+						<p> <?php echo $error ?> </p>
+					<?php endif; ?>
+				</div>
+				
 			</div>
 			<div class="flex-sb-m w-full p-b-30">
-
-				<div>
 					<a href="#" class="txt1">
 						¿Se te olvido tu contraseña?
 					</a>
 				</div>
-			</div>
 			<div class="container-login100-form-btn">
 				<button class="login100-form-btn">
 					Entrar

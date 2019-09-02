@@ -14,17 +14,8 @@ class Login_model extends CI_model
             $row=$query->row();
             if(password_verify($pass, $row->password))
             {
-                $data=array('user_data'=>array(
-                    'name'=>$row->nombreAlumno,
-                    'id'=>$row->idAlumno,
-                    'email'=>$row->email,
-                    'pass'=>$row->password)
-                );
-                $this->session->set_userdata($data);
-                return true;
+                return $row;
             }
         }
-        $this->session->unset_userdata('user_data');
-        return false;
     }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-08-2019 a las 18:53:32
+-- Tiempo de generación: 29-08-2019 a las 19:25:21
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `cursos`
 --
+CREATE DATABASE IF NOT EXISTS `cursos` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `cursos`;
 
 -- --------------------------------------------------------
 
@@ -30,17 +32,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `alumno` (
   `idAlumno` int(11) NOT NULL,
-  `genero` varchar(100) NOT NULL,
   `nombreAlumno` varchar(100) NOT NULL,
   `apellidos` varchar(100) NOT NULL,
-  `fechaNacimiento` date NOT NULL,
-  `Estado` varchar(50) NOT NULL,
-  `Delegacion` varchar(50) NOT NULL,
-  `codigoPostal` int(10) NOT NULL,
+  `usuario` varchar(50) NOT NULL,
   `telefono` int(10) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `foto` varchar(50) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `alumno`
+--
+
+INSERT INTO `alumno` (`idAlumno`, `nombreAlumno`, `apellidos`, `usuario`, `telefono`, `password`, `email`) VALUES
+(1, 'Moises', '', 'Moy01', '', '$2y$10$96eisvYR/hctbed2N06/out8gOejDiDIDuCr4yfx2vNT54bLVlyk2', 'moy@hot.com'),
+(2, 'Moises', '', 'prueba', '', '$2y$10$h8ivtSlSt3zL5QAtElfIa.uFb91z8bUjGv2aTWJNQKmgKBlWEwda2', 'moy@hot.com');
 
 -- --------------------------------------------------------
 
@@ -51,8 +57,8 @@ CREATE TABLE `alumno` (
 CREATE TABLE `cursos` (
   `idCurso` int(11) NOT NULL,
   `nombreCurso` varchar(100) NOT NULL,
-  `status` varchar(50) NOT NULL,
-  `capacidad` int(10) NOT NULL,
+  `idProfesor` int(11) NOT NULL,
+  `duracion` int(10) NOT NULL,
   `descripcion` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -65,12 +71,27 @@ CREATE TABLE `cursos` (
 CREATE TABLE `usuarios` (
   `idUsuario` int(11) NOT NULL,
   `tipoUsuario` varchar(50) NOT NULL,
-  `contraseña` varchar(50) NOT NULL
+  `contraseña` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`idUsuario`, `tipoUsuario`, `contraseña`) VALUES
+(1, 'prueba', 'f0c1b6bd87baaea2c436db6e709dd7c01bd74e598d4492bb4f');
 
 --
 -- Índices para tablas volcadas
 --
+CREATE TABLE calificacion (
+  idCalificaion int(11) NOT NULL,
+  idCurso int(11) NOT NULL,
+  idAlumno int(11) NOT NULL,
+  puntaje  int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 
 --
 -- Indices de la tabla `alumno`
@@ -91,6 +112,11 @@ ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`idUsuario`);
 
 --
+-- Indices de la tabla `calificacion`
+--
+ALTER TABLE `calificacion`
+  ADD PRIMARY KEY (`idCalificaion`);
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -98,7 +124,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `idAlumno` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idAlumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `cursos`
@@ -110,7 +136,13 @@ ALTER TABLE `cursos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `calificacion`
+--
+ALTER TABLE calificacion
+  MODIFY idCalificaion int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

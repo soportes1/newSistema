@@ -1,3 +1,4 @@
+
 <html> 
 <head> 
 	<title> Mi  formulario </title> 
@@ -20,3 +21,8 @@
 
 </body> 
 </html>
+
+<h1> Bienvenido/a <?php echo $nombre ?> </h1>
+    <p>
+       Ver contenido
+    </p>
