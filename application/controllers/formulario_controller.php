@@ -15,7 +15,7 @@ class Formulario_controller extends CI_Controller {
 	{
 		$this->load->view('header/head');
 		$this->load->view('footer/foot');
-		$this->load->view('formulario');
+		$this->load->view('vista');
 	}
 
 	public function registro(){
