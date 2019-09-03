@@ -21,7 +21,7 @@ class Formulario_controller extends CI_Controller {
 		$query = $this->all_cursos->Cursos();
 		$this->load->view('header/head');
 		$this->load->view('navbar',$data);
-		$this->load->view('viewCursosVideos',comp('query'));		
+		$this->load->view('viewCursosVideos',compact('query'));		
 		$this->load->view('footer/foot');
 	}
 
