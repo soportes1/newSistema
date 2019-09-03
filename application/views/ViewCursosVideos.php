@@ -1,8 +1,7 @@
 <div class="content">
     <div class="container">
         <?php 
-        $query = $this->db->query("SELECT * FROM cursos");
-        foreach ($query->result_array() as $row)
+        foreach ($query as $row)
             {  ?>
                 <table>
                   <tbody id="mySearch">

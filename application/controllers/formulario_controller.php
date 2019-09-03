@@ -6,8 +6,10 @@ class Formulario_controller extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model("model_Agregar");
+		$this->load->model("all_cursos");
 		$this->load->helper('url_helper');
 		$this->load->library('form_validation');
+		$this->load->library('pagination');
 	}
 
 	public function index()
@@ -16,9 +18,10 @@ class Formulario_controller extends CI_Controller {
 		if ($data=="") {
 			$data = array('nombre' =>null , );
 		}
+		$query = $this->all_cursos->Cursos();
 		$this->load->view('header/head');
 		$this->load->view('navbar',$data);
-		$this->load->view('viewCursosVideos');		
+		$this->load->view('viewCursosVideos',comp('query'));		
 		$this->load->view('footer/foot');
 	}
 
