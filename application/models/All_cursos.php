@@ -10,6 +10,6 @@ class All_cursos extends CI_model
     {
        // $query = $this->db->query("SELECT * FROM cursos");
          $query = $this->db->get('cursos');
-        return $query->row_array();
+        return $query->result_array();
     }
 }
