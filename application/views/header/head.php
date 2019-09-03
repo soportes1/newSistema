@@ -11,6 +11,17 @@
 	<link rel="stylesheet" type="text/css" href="rec/css/main.css">
 	<link rel="stylesheet" type="text/css" href="rec/css/estilo.css">
 
-	
+	<script src="rec/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+
+<script>
+$(document).ready(function(){
+  $("#Buscar").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#mySearch tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 </head>
 	<body>
