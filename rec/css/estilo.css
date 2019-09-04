@@ -73,7 +73,7 @@ input[type="radio"]:checked ~ label {
     padding:30px;
     border-radius:3px;
 
-    margin:200px auto 100px;
+    margin:50px auto 100px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
