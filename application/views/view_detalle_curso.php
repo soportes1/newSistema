@@ -1,8 +1,10 @@
+
 <div class="content">
   <div class="container">
     <?php 
-    foreach ($query as $row)
+    foreach ($detalle as $row)
       {  ?>
+      	
         <table>
           <tbody id="mySearch">
             <tr>
