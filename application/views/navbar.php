@@ -24,7 +24,7 @@
         </div>
       </li>
         <li class="nav-item ">
-        <a class="nav-link" href="<?php echo base_url() ?>paginador_control/lis">Paginación</a>
+        <a class="nav-link" href="<?php echo base_url() ?>paginador_control">Paginación</a>
       </li>
     </ul>
 <ul class="navbar-nav mx-auto">

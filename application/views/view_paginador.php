@@ -1,3 +1,4 @@
+
 <div class="content">
     <div class="container">
         <?php 
@@ -19,7 +20,7 @@
                                         <div class="overlay">
                                             <div class="text">
                                             <!--
-                                                <h4 class="mb0 text-white"><?php echo $deptlist[$i]->nombreCurso; ?></h4>-->
+                                                <h4 class="mb0 text-white"><?php echo $list[$i]->nombreCurso; ?></h4>-->
 
                                                <p><?php echo $list[$i]->descripcion; ?></p>
                                                 <form >
