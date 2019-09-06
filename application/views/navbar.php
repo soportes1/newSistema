@@ -23,6 +23,9 @@
           <a class="dropdown-item" href="#">Tema 3</a>
         </div>
       </li>
+        <li class="nav-item ">
+        <a class="nav-link" href="<?php echo base_url() ?>paginador_control/lis">Paginación</a>
+      </li>
     </ul>
 <ul class="navbar-nav mx-auto">
   <form class="form-inline my-2 my-lg-0  align-center">
