@@ -4,13 +4,13 @@
     <?php 
     foreach ($detalle as $row)
       {  ?>
-      	<div class="col-md-10 offset-md-1">
+        <div class="col-md-10 offset-md-1">
         <div class="row pb-row">
             <div class="col-md-6 pb-video aling-center">
-                <iframe class="pb-video-frame" width="130%" height="300%" src="https://www.youtube.com/embed/K68UrdUOr2Y?list=RDzuAcaBkcYGE?ecver=1" 
+                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/K68UrdUOr2Y?list=RDzuAcaBkcYGE?ecver=1" 
                 https://www.youtube.com/watch?v=K68UrdUOr2Y&feature=youtu.be
                 frameborder="0" allowfullscreen></iframe>
-                <label class="form-control label-warning text-xs-center"><?php echo $row['nombreCurso']; ?></label>
+                <label class="form-control label-warning text-xs-center">Claydee - Alena</label>
             </div>
             
         </div>
@@ -405,21 +405,29 @@
                 <div class="tab-pane" id="add-comment-disabled">
                     <div class="alert alert-info alert-dismissible" role="alert">
                       <button type="button" class="close" data-dismiss="alert">
-                        <span aria-hidden="true">X</span><span class="sr-only">Cerrar</span>                        
+                        <span aria-hidden="true">×</span><span class="sr-only">Close</span>                        
                       </button>
-                      <strong>Hola!</strong> si ya tiene una cuenta <a href="#" class="alert-link">Inicie session</a> para poder enviar comentarios. Si no tiene una cuenta <a href="#" class="alert-link"> Cree una cuenta.</a>
+                      <strong>Hey!</strong> If you already have an account <a href="#" class="alert-link">Login</a> now to make the comments you want. If you do not have an account yet you're welcome to <a href="#" class="alert-link"> create an account.</a>
                     </div>
                     <form action="#" method="post" class="form-horizontal" id="commentForm" role="form"> 
                         <div class="form-group">
-                            <label for="email" class="col-sm-2 control-label">Comentario</label>
+                            <label for="email" class="col-sm-2 control-label">Comment</label>
                             <div class="col-sm-10">
                               <textarea class="form-control" name="addComment" id="addComment" rows="5" disabled></textarea>
                             </div>
                         </div>
-                        
+                        <div class="form-group">
+                            <label for="uploadMedia" class="col-sm-2 control-label">Upload media</label>
+                            <div class="col-sm-10">                    
+                                <div class="input-group">
+                                  <div class="input-group-addon">http://</div>
+                                  <input type="text" class="form-control" name="uploadMedia" id="uploadMedia" disabled>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">                    
-                                <button class="btn btn-success btn-circle text-uppercase disabled" type="submit" id="envioComentario"><span class="glyphicon glyphicon-send"></span> enviar comentario</button>
+                                <button class="btn btn-success btn-circle text-uppercase disabled" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span> Summit comment</button>
                             </div>
                         </div>            
                     </form>
@@ -427,7 +435,7 @@
                 <div class="tab-pane" id="new-account">
                     <form action="#" method="post" class="form-horizontal" id="commentForm" role="form">
                         <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">nombre</label>
+                            <label for="name" class="col-sm-2 control-label">Name</label>
                             <div class="col-sm-10">
                               <input type="text" class="form-control" name="name" id="name">
                             </div>
@@ -439,21 +447,21 @@
                             </div>
                         </div>  
                         <div class="form-group">
-                            <label for="password" class="col-sm-2 control-label">Contraseña</label>
+                            <label for="password" class="col-sm-2 control-label">Password</label>
                             <div class="col-sm-10">
-                              <input type="password" class="form-control" name="pass" id="pass">
+                              <input type="password" class="form-control" name="password" id="password">
                             </div>
                         </div>                         
                         <div class="form-group">
                             <div class="checkbox">                
                                 <label for="agreeTerms" class="col-sm-offset-2 col-sm-10">
-                                    <input type="checkbox" name="agreeTerms" id="agreeTerms"> Acepto <a href="#">Terminos & Condiciones</a>
+                                    <input type="checkbox" name="agreeTerms" id="agreeTerms"> I agree all <a href="#">Terms & Conditions</a>
                                 </label>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">                    
-                                <button class="btn btn-primary btn-circle text-uppercase" type="submit" id="submit">Crear cuenta</button>
+                                <button class="btn btn-primary btn-circle text-uppercase" type="submit" id="submit">Create an account</button>
                             </div>
                         </div>            
                     </form>
