@@ -25,10 +25,145 @@ a:focus, a:hover { text-decoration: none; color: #f67800; }
 .team-img:hover .team-content { opacity: 0; }
 .text { color: #fff; position: absolute; top: 30%; left: 30%; transform: translate(-26%, -26%); -ms-transform: translate(-26%, -26%); right: 0; font-weight: 400; font-size: 16px; }
 
+
+/*****************************************************
+*                                                    *
+*        Estilo de la lista de videos                *
+*                                                    *
+******************************************************/
+
+.padd{
+    padding: 250px
+}
+.card {
+     /*position: relative;*/
+    top:5%;
+    transform:translate(50%,-50%);
+    width:300px;
+    height:450px;
+    background:#000;
+    overflow:hidden;
+    box-shadow:0 5px 10px rgba(0,0,0,0.5);
+}
+.card .poster {
+    position:relative;
+    overflow:hidden;
+}
+.card .poster:before {
+    content:'';
+    position:absolute;
+    bottom:-182px;
+    left:0;
+    width:100%;
+    height:100%;
+    background: linear-gradient(0deg, #000 50%, transparent);
+    transition:0.5s;
+    z-index:1;
+}
+.card:hover .poster:before {
+    bottom:0;
+}
+.card .poster img {
+    width:100%;
+    transition:0.5s;
+}
+.card:hover .poster img {
+    filter:blur(5px);
+    transform:translateY(-50px);
+}
+.details {
+    position:absolute;
+    padding:20px;
+    width:100%;
+    height:74%;
+    bottom:-182px;
+    left:0;
+    box-sizing:border-box;
+    transition:0.5s;
+    z-index:2;
+}
+.card:hover .details {
+    bottom:0;
+}
+.details h2 {
+    color:#fff;
+    margin:0;
+    padding:0;
+    font-size:20px;
+}
+.details h2 span {
+    font-size:14px;
+    color:#ff9800;
+}
+.rating {
+    position:relative;
+    padding:4px 0;
+}
+.rating .fa {
+    color:#f7f406;
+    margin-right:2px;
+    font-size:16px;
+}
+.rating span {
+    color:#fff;
+}
+.tags {
+    position:relative;
+    margin-top:5px;
+}
+.tags span {
+    padding:2px 5px;
+    margin-right:2px;
+    color:#fff;
+    display:inline-block;
+    border-radius:4px;
+}
+.tags span.fantasy {
+    background:#7206f7;
+}
+.tags span.romance {
+    background:#f70661;
+}
+.info {
+    color:#fff;
+}
+.info p {
+    margin:15px 0 10px;
+}
+.star {
+    position:relative;
+}
+.star h4 {
+    margin:0;
+    padding:0;
+    font-size:20px;
+    color:#f7f406;
+}
+.star ul {
+    margin:10px 0 0;
+    padding:0;
+    display:flex;
+}
+.star ul li {
+    list-style:none;
+    width:35px;
+    height:35px;
+    background:#fff;
+    border-radius:50%;
+    overflow:hidden;
+    margin-right:6px;
+    border:2px solid #fff;
+}
+.star ul li img {
+    width:100%;
+}
+
+
+
 /*******************************************************************************************
 ************************Estilo para las estrellas de calificacion***************************
 ********************************************************************************************/
-#form {
+/*#form {
   width: 250px;
   margin: 0 auto;
   height: 50px;
@@ -59,9 +194,9 @@ label:hover ~ label {
 input[type="radio"]:checked ~ label {
   color: orange;
 }
-
+*/
 /*-------------------------
-    Simple reset
+    Estilo de Subir videos 
 --------------------------*/
 
 
@@ -266,3 +401,99 @@ footer h2 i{
     float: left;
     margin-top: 11px;
 }
+
+/********************************************************************
+*********************************************************************
+************************Estilo de comentarios************************/
+
+/*
+    Image credits:
+    uifaces.com (http://uifaces.com/authorized)
+*/
+
+#login { display: none; }
+.login,
+.logout { 
+    position: absolute; 
+    top: -3px;
+    right: 0;
+}
+.page-header { position: relative; }
+.reviews {
+    color: #555;    
+    font-weight: bold;
+    margin: 10px auto 20px;
+}
+.notes {
+    color: #999;
+    font-size: 12px;
+}
+.media .media-object { max-width: 120px; }
+.media-body { position: relative; }
+.media-date { 
+    position: absolute; 
+    right: 25px;
+    top: 25px;
+}
+.media-date li { padding: 0; }
+.media-date li:first-child:before { content: ''; }
+.media-date li:before { 
+    content: '.'; 
+    margin-left: -2px; 
+    margin-right: 2px;
+}
+.media-comment { margin-bottom: 20px; }
+.media-replied { margin: 0 0 20px 50px; }
+.media-replied .media-heading { padding-left: 6px; }
+
+.btn-circle {
+    font-weight: bold;
+    font-size: 12px;
+    padding: 6px 15px;
+    border-radius: 20px;
+}
+.btn-circle span { padding-right: 6px; }
+.embed-responsive { margin-bottom: 20px; }
+.tab-content {
+    padding: 50px 15px;
+    border: 1px solid #ddd;
+    border-top: 0;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.custom-input-file {
+    overflow: hidden;
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background: #eee url('https://s3.amazonaws.com/uifaces/faces/twitter/walterstephanie/128.jpg');    
+    background-size: 120px;
+    border-radius: 120px;
+}
+input[type="file"]{
+    z-index: 999;
+    line-height: 0;
+    font-size: 0;
+    position: absolute;
+    opacity: 0;
+    filter: alpha(opacity = 0);-ms-filter: "alpha(opacity=0)";
+    margin: 0;
+    padding:0;
+    left:0;
+}
+.uploadPhoto {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    display: none;
+    width: 50%;
+    height: 50%;
+    color: #fff;    
+    text-align: center;
+    line-height: 60px;
+    text-transform: uppercase;    
+    background-color: rgba(0,0,0,.3);
+    border-radius: 50px;
+    cursor: pointer;
+}
+.custom-input-file:hover .uploadPhoto { display: block; }
