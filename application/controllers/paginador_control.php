@@ -14,7 +14,7 @@ class paginador_control extends CI_Controller
 
     public function index()
     {
-        $config['base_url'] = base_url('paginador_control/index/');
+        $config['base_url'] = site_url('paginador_control/index/');
         $config['total_rows'] = $this->db->count_all('cursos');
         $config['per_page'] = "2";
         $config["uri_segment"] = 3;
@@ -54,12 +54,12 @@ class paginador_control extends CI_Controller
         
         $this->load->view('header/head');
         $this->load->view('view_paginador',$data);
-        
+
         $this->load->view('footer/foot');
 
     }
 
-
+/*
     public function lis(){
         $config['base_url'] = site_url('paginador_control/lis');
         $config['total_rows'] = $this->db->count_all('cursos');
@@ -100,5 +100,5 @@ class paginador_control extends CI_Controller
         $this->load->view('footer/foot');
         $this->load->view('view_paginador',$data);
     }
-}
+*/}
 ?>
